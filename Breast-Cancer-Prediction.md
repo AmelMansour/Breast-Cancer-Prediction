@@ -165,6 +165,7 @@ Nous utilisons dropna() pour supprimer les lignes ayant des valeurs manquantes (
 
 Nous affichons le DataFrame nettoyé après avoir effectué toutes les étapes de nettoyage.
 
+![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/fb22fb06-4014-4701-8a94-7451dfa23570)
 
 1.	Importer la bibliothèque Pandas pour la manipulation de données :
 
