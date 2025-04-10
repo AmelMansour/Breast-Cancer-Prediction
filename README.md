@@ -2,8 +2,6 @@
 
 The goal of our study is to predict in silico the mutations affecting the BRCA1 and BRCA2 genes, responsible for breast cancer, in order to identify similar patterns associated with deleterious effects. By combining sophisticated computational techniques and valuable biological data, this model is able to accurately discern whether a genetic mutation presents a pathogenic risk or is inconsequential.
 
-# Bioinformatics Section
-
 1. Importing Libraries:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/13585f43-99d0-4f01-8990-48b3d079608e)
@@ -128,159 +126,161 @@ index=False: The index argument is set to False, meaning that the DataFrame's in
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/535e37b4-94c7-46a3-b2e4-440351742c4f)
 
-Nous importons la bibliothèque Pandas pour la manipulation des données.
+We import the Pandas library for data manipulation.
 
-16.	Chargement du DataFrame :
+16. Loading the DataFrame:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/d00baeef-bf87-40d9-b7e6-9849f0aeb677)
 
-Nous chargeons un DataFrame à partir d'un fichier CSV appelé 'displayed_dataframe.csv'. 
+We load a DataFrame from a CSV file called 'displayed_dataframe.csv'.
 
-17.	Fonction de nettoyage des données :
+17. Data Cleaning Function:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/b90da7ae-130c-4f8f-b3e5-d4fb28b35f7a)
 
-Nous définissons une fonction appelée clean_displayed_data qui prend en entrée un DataFrame df.
+We define a function called clean_displayed_data that takes a DataFrame df as input.
 
-18.	Suppression des lignes en double :
+18. Removing Duplicate Rows:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/4acb85ef-013a-4bbd-b71e-c74952abbbf1)
 
-Nous utilisons la méthode drop_duplicates() pour supprimer les lignes en double du DataFrame.
+We use the drop_duplicates() method to remove duplicate rows from the DataFrame.
 
-19.	Suppression des lignes avec des données manquantes (NaN) :
+19. Removing Rows with Missing Data (NaN):
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/950c8473-8895-4942-b8c5-edd5e29569b2)
 
-Nous utilisons la méthode dropna() pour supprimer les lignes contenant des valeurs manquantes (NaN) dans n'importe quelle colonne du DataFrame.
+We use the dropna() method to remove rows containing missing (NaN) values in any column of the DataFrame.
 
-20.	Réindexation du DataFrame :
+20. Reindexing the DataFrame:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/7f6812fb-4466-4184-823c-70ef1c69e79a)
 
-Nous réindexons le DataFrame après avoir effectué les suppressions pour réorganiser les indices de ligne.
+We reindex the DataFrame after performing the deletions to reorder the row indices.
 
-21.	Suppression des lignes contenant des valeurs "None" dans n'importe quelle colonne :
+21. Removing Rows Containing "None" Values in Any Column:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/649eecac-1ac2-4508-9d87-920f71b605d4)
 
-Nous utilisons dropna() avec l'argument how='any' pour supprimer les lignes contenant des valeurs "None" dans n'importe quelle colonne du DataFrame.
+We use dropna() with the argument how='any' to remove rows containing "None" values in any column of the DataFrame.
 
-22.	Correction des valeurs incorrectes dans la colonne "Position" :
+22. Correcting Incorrect Values in the "Position" Column:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/ad1c6add-3583-4d3e-b0df-ae881871a0fc)
 
-Nous définissons une fonction correct_position qui tente de convertir la valeur de la colonne "Position" en un nombre entier. Si la conversion échoue (par exemple, si la valeur n'est pas un nombre valide), nous renvoyons None.
+We define a function correct_position that attempts to convert the value in the "Position" column to an integer. If the conversion fails (e.g., if the value is not a valid number), we return None.
 
-23.	Application de la correction à la colonne "Position" :
-
+23. Applying the Correction to the "Position" Column:
+    
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/252d8624-9d4e-4207-9a86-bb693a74163d)
 
-Nous appliquons la fonction correct_position à la colonne "Position" du DataFrame pour corriger les valeurs incorrectes.
+We apply the correct_position function to the "Position" column of the DataFrame to correct the incorrect values.
 
-24.	Suppression des données manquantes (NaN) dans la colonne "AcideAmineSauvage" :
+24. Removing Missing Data (NaN) in the "AcideAmineSauvage" Column:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/d284cd79-e66e-45f0-b36c-aa28efe166b4)
 
-Nous utilisons dropna() pour supprimer les lignes ayant des valeurs manquantes (NaN) dans la colonne "AcideAmineSauvage".
+We use dropna() to remove rows with missing (NaN) values in the "AcideAmineSauvage" column.
 
-25.	Affichage du DataFrame nettoyé :
+25. Displaying the Cleaned DataFrame:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/d1766efa-956e-43fb-a70f-e640de55cebc)
 
-Nous affichons le DataFrame nettoyé après avoir effectué toutes les étapes de nettoyage.
+We display the cleaned DataFrame after performing all the cleaning steps.
 
 ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/fb22fb06-4014-4701-8a94-7451dfa23570)
 
 ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/c8b5cb5e-1187-4a11-a280-11d0033eda58)
 
---> En combinant ces étapes de nettoyage, la fonction clean_displayed_data(df) assure que le DataFrame résultant, cleaned_df, ne contient que des données valides et cohérentes, ce qui est essentiel pour une analyse précise et fiable.
-Le DataFrame contient un total de 2277 lignes, chacune représentant une variation génétique différente avec ses caractéristiques associées
+--> By combining these cleaning steps, the function clean_displayed_data(df) ensures that the resulting DataFrame, cleaned_df, contains only valid and consistent data, which is essential for accurate and reliable analysis.
+The DataFrame contains a total of 2277 rows, each representing a different genetic variation with its associated characteristics.
 
 
-26.	Importer la bibliothèque Pandas pour la manipulation de données :
-
+26. Importing the Pandas Library for Data Manipulation:
+   
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/d40c31eb-10c8-49ac-838f-a30cfdbcfed5)
 
-27.	Définir une fonction display_unique_values qui prend un DataFrame df et une liste de noms de colonnes columns_to_check en tant qu'arguments. Cette fonction affichera les valeurs uniques pour chaque colonne spécifiée.
+27. Defining a Function display_unique_values that Takes a DataFrame df and a List of Column Names columns_to_check as Arguments. This Function Will Display the Unique Values for Each Specified Column:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/3b7c986e-07c2-46d8-ba67-ccfa0f326afd)
 
-28.	Charger le DataFrame à partir du fichier CSV "displayed_dataframe.csv" :
-
+28. Loading the DataFrame from the "displayed_dataframe.csv" File:
+    
 ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/3ca868be-d036-4825-98a5-5d11032645fd)
 
-29.	Sélectionner les colonnes pertinentes que vous souhaitez vérifier pour les valeurs uniques. Dans ce cas, les colonnes "AcideAmineSauvage" et "AcideAmineMute" sont sélectionnées :
+29. Selecting Relevant Columns You Want to Check for Unique Values. In This Case, the Columns "AcideAmineSauvage" and "AcideAmineMute" are Selected:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/52f63b2b-b115-4c71-961f-2a7446e67caf)
 
-30.	Appeler la fonction display_unique_values avec le DataFrame displayed_df et la liste des colonnes à vérifier :
+30. Calling the display_unique_values Function with the DataFrame displayed_df and the List of Columns to Check:
  
 ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/b584b975-1a8a-4310-ba7a-35d6ef56d27b)
 
-31.	Importer les bibliothèques nécessaires :
+31. Importing Necessary Libraries:
 
 ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/bc6194ca-cae0-4b8b-bc63-59ec9d81ff9c)
 
-32.	Charger un DataFrame à partir du fichier "displayed_dataframe.csv" :
+32. Loading a DataFrame from the "displayed_dataframe.csv" File:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/c92390ee-0a07-488a-9931-be06b916ad49)
 
-33.	Créer une liste d'acides aminés appelée acides_amines pour une utilisation ultérieure :
+33. Creating a List of Amino Acids Called acides_amines for Later Use:
 
 ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/b760d9be-ed91-4521-9661-49d945e29401)
 
-34.	Initialiser une liste vide resultats_filtrations pour stocker les résultats de filtrage :
+34. Initializing an Empty List resultats_filtrations to Store the Filtering Results:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/fa92d799-bac1-4d50-a542-ec0540a3d74b)
 
-35.	Initialiser le widget de sortie output_text pour afficher les résultats :
-
+35. Initializing the Output Widget output_text to Display Results:
+    
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/8ca36407-8a93-4273-a740-2d4066722c13)
 
-36.	Définir une classe PDF pour la génération de rapports PDF en utilisant la bibliothèque fpdf2 :
+36. Defining a PDF Class for Generating PDF Reports Using the fpdf2 Library:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/026d2f41-53c4-4af8-8f75-967975736c42)
 
-37.	Définir une fonction generate_pdf pour générer un rapport PDF contenant les résultats de filtration :
+37. Defining a generate_pdf Function to Generate a PDF Report Containing the Filtering Results:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/8f303149-37ac-4860-8506-c8f0ddf32366)
 
-38.	Définir une fonction filter_records pour filtrer les enregistrements du DataFrame en fonction de l'acide aminé et de la position :
+38. Defining a filter_records Function to Filter Records from the DataFrame Based on Amino Acid and Position:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/6216bde6-eaa3-480d-8e23-0f50e8f0b3d7)
 
-39.	Définir des gestionnaires de clics de bouton (on_continue_button_click et on_stop_button_click) pour traiter les actions de l'utilisateur :
+39. Defining Button Click Handlers (on_continue_button_click and on_stop_button_click) to Handle User Actions:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/b2b9cdcd-0932-4982-8eff-0e235a7bdc50)
 
-40.	Créer un lien HTML (link) pour télécharger les résultats sous forme de fichiers CSV :
+40. Creating an HTML Link (link) to Download the Results as CSV Files:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/39f32e51-5f06-42ba-80c2-3069184cf82c)
 
-41.	Définir une fonction display_results pour afficher les résultats de filtration dans le widget de sortie output_text :
+41. Defining a display_results Function to Display the Filtering Results in the Output Widget output_text:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/acc8a2ce-b0f5-4410-b067-0e296fa8f0b0)
 
-42.	Définir une fonction display_widgets pour afficher les widgets interactifs permettant à l'utilisateur de saisir des valeurs d'acides aminés et de position, ainsi qu'un bouton de filtrage :
+42. Defining a display_widgets Function to Display Interactive Widgets for the User to Enter Amino Acid and Position Values, as Well as a Filtering Button:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/451cda1c-19d2-49f7-ae89-372aba80a946)
 
-43.	Appeler la fonction display_widgets pour afficher les widgets interactifs :
-
+43. Calling the display_widgets Function to Display the Interactive Widgets:
+    
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/048de45e-9c47-4d98-945f-0a1610ff828c)
 
-44.	Afficher le lien de téléchargement des résultats CSV générés :
+44. Displaying the Link to Download the Generated CSV Results:
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/647209c1-d849-48d4-bf1c-cf915a2b30d0)
 
  ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/82967cf2-3fe3-4324-a3f7-d75581a0b1e8)
 
-Ce code vous permettra de sélectionner un acide aminé et une position, d'afficher les résultats avec la date et l'heure actuelles, puis de répondre à la question "Voulez-vous continuer ?". Si vous choisissez "Oui", le processus se répétera avec un nouvel acide aminé et une nouvelle position. Si vous choisissez "Non", le code affichera "Exécution terminée." et affichera l'output final de datetime.
+This code will allow you to select an amino acid and position, display the results with the current date and time, and then ask the question, "Do you want to continue?" If you choose "Yes," the process will repeat with a new amino acid and position. If you choose "No," the code will display "Execution finished." and show the final output of the datetime.
 
 ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/ebcfde61-0a0f-41aa-9c6e-b0690a081277)
 
-Ce code affichera tous les résultats de filtrations effectuées depuis le début lorsque vous cliquez sur le bouton "Arrêter". Les résultats de chaque filtration sont stockés dans la liste resultats_filtrations et sont affichés les uns après les autres lorsque le bouton "Arrêter" est cliqué.
+It will display all the filtering results performed from the beginning when you click the "Stop" button. The results of each filtering are stored in the resultats_filtrations list and are displayed one by one when the "Stop" button is clicked.
+
+
 
 ![image](https://github.com/AmelMansour/Breast-Cancer-Prediction/assets/141269604/adf66514-c094-42bb-9bbe-00ba8d873857)
 
